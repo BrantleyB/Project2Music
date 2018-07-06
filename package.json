@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/BrantleyB/Project2Music/issues"
   },
-  "homepage": "https://github.com/BrantleyB/Project2Music#readme"
+  "homepage": "https://github.com/BrantleyB/Project2Music#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
