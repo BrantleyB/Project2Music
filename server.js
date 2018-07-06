@@ -13,7 +13,7 @@ app.listen(PORT, () =>{
   console.log('listening...');
 })
 
-mongoose.connect(mongoUri);
+mongoose.connect(mongoUri, {useNewUrlParser: true});
 mongoose.connection.on('open', () =>{
   console.log('connected to mongoose!!!!!!!')
 })
