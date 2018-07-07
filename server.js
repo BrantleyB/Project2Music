@@ -29,14 +29,6 @@ app.get('/albums', (req, res)=>{
     });
 });
 
-app.get('/seed/newalbums/viaseedfile', (req, res) => {
-  Album.insertMany(productSeeds, (err, albums) => {
-    if (err) { console.log(err) } else {
-      res.send(albums)
-    }
-  })
-})
-
 app.listen(PORT, () =>{
   console.log('listening...');
 })
