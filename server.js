@@ -4,6 +4,8 @@ const PORT = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 const mongoUri =  process.env.MONGODB_URI || 'mongodb://localhost:27017/grocery_app_dev';
 const methodOverride = require('method-override');
+const Album = require('./models/albums.js');
+const albumSeeds = require('./models/seed.js')
 
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended:true}));
@@ -13,11 +15,26 @@ app.get('/albums/new', (req, res)=>{
 });
 
 app.post('/albums/', (req, res)=>{
-    res.send('received');
+  Album.create(req.body, (error, createdAlbum)=>{
+  res.send(createdAlbum);
+  });
 });
 
-app.get('/', (req, res) =>{
-  res.send('this works');
+
+app.get('/albums', (req, res)=>{
+    Album.find({}, (error, allAlbums)=>{
+        res.render('index.ejs', {
+            albums: allAlbums
+        });
+    });
+});
+
+app.get('/seed/newalbums/viaseedfile', (req, res) => {
+  Album.insertMany(productSeeds, (err, albums) => {
+    if (err) { console.log(err) } else {
+      res.send(albums)
+    }
+  })
 })
 
 app.listen(PORT, () =>{

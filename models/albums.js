@@ -6,7 +6,8 @@ const albumSchema = new mongoose.Schema({
     genre:String,
     year: Number,
     price: Number,
-    quantity: Number
+    quantity: Number,
+    img: String
 });
 
 const Album = mongoose.model('Album', albumSchema);

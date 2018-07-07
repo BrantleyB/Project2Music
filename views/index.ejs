@@ -5,6 +5,16 @@
     <title></title>
   </head>
   <body>
-
+<h1> Welcome to Burton's Music Emporium! </h1>
+<div class="albums">
+         <% albums.forEach( album => { %>
+         <div class="card">
+           <h5> <%= album.title %></h5>
+           <a href="/albums/<%=album.id%>">
+             <img src="<%= album.img %>" alt="An image of <%= album.name %>" /></a>
+             <h6>Price: $<%=album.price %></h6>
+         </div>
+       <% }) %>
+     </div>
   </body>
 </html>
