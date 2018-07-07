@@ -6,10 +6,14 @@ const mongoUri =  process.env.MONGODB_URI || 'mongodb://localhost:27017/grocery_
 const methodOverride = require('method-override');
 
 app.use(methodOverride('_method'));
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({extended:true}));
 
 app.get('/albums/new', (req, res)=>{
-    res.send('new');
+    res.render('new.ejs');
+});
+
+app.post('/albums/', (req, res)=>{
+    res.send('received');
 });
 
 app.get('/', (req, res) =>{
