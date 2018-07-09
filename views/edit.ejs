@@ -5,6 +5,16 @@
     <title></title>
   </head>
   <body>
-
+    <h1>Edit an Album</h1>
+            <form action="/albums/<%=album.id%>?_method=PUT" method="POST">
+                title: <input type="text" name="title" value="<%=album.title%>"/><br/>
+                artist: <input type="text" name="artist" value="<%=album.artist%>"/><br/>
+                genre: <input type="text" name="genre" value="<%=album.genre%>"/><br/>
+                year: <input type="number" name="year" value="<%=album.year%>"/><br/>
+                price: <input type="number" name="price" value="<%=album.price%>"/><br/>
+                quantity: <input type="number" name="quantity" value="<%=album.quantity%>"/><br/>
+                image: <input type="text" name="img" id="img" value="<%=album.img%>"/><br/>
+                <input type="submit" name="" value="Edit Album"/>
+            </form>
   </body>
 </html>

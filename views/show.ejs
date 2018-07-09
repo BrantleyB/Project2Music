@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-<h1> Chosen Album </h1>
-  <%=album.img %>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <%=album.image%>
   <ul>
-  Title: <%=album.title%> <br/>
-  Artist: <%=album.artist%> <br/>
-  Genre: <%=album.genre%> <br/>
-  Year: <%=album.year%> <br/>
-  Price: $<%=album.price%> <br/>
-  Quantity: <%=album.quantity%> Units <br/>
-</ul>
-  </body>
+    Title: <%=album.title%> <br/>
+    Artist: <%=album.artist%> <br/>
+    Genre: <%=album.genre%> <br/>
+    Year: <%=album.year%> <br/>
+    Price: $<%=album.price%> <br/>
+    Quantity: <%=album.quantity%> Units <br/>
+  </ul>
+  <nav>
+    <a href="/albums">Back to Main Store</a>
+  </nav>
+</body>
 </html>
