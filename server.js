@@ -19,7 +19,7 @@ app.post('/albums/', (req, res)=>{
   });
 });
 
-app.get('albums/:id/edit', (req, res) => {
+app.get('/albums/:id/edit', (req, res) => {
   Album.findById(req.params.id, (err, foundAlbum) =>{
       res.render(
         'edit.ejs',
@@ -30,7 +30,7 @@ app.get('albums/:id/edit', (req, res) => {
   })
 });
 
-app.put('albums/:id', (req, res)=>{
+app.put('/albums/:id', (req, res)=>{
     Album.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
         res.redirect('/albums');
     });
