@@ -36,6 +36,12 @@ app.get('/albums/:id/edit', (req, res) => {
   })
 });
 
+app.get('/', (req, res)=>{
+  res.render('intro.ejs');
+});
+
+
+
 app.put('/albums/:id', (req, res)=>{
     Album.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
         res.redirect('/albums');
