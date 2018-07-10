@@ -9,6 +9,7 @@ const Album = require('./models/albums.js');
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended:true}));
 
+//Seed Route
 app.get('/seed', (req, res)=>{
     Album.create(
         [
@@ -46,22 +47,26 @@ app.get('/seed', (req, res)=>{
     )
 });
 
+//Delete Route
 app.delete('/albums/:id', (req, res)=>{
     Album.findByIdAndRemove(req.params.id, (err, data)=>{
         res.redirect('/albums');
     });
 });
 
+//New Route
 app.get('/albums/new', (req, res)=>{
     res.render('new.ejs');
 });
 
+//Create Route
 app.post('/albums/', (req, res)=>{
   Album.create(req.body, (error, createdAlbum)=>{
   res.redirect('/albums')
   });
 });
 
+//Edit Route
 app.get('/albums/:id/edit', (req, res) => {
   Album.findById(req.params.id, (err, foundAlbum) =>{
       res.render(
@@ -78,13 +83,14 @@ app.get('/', (req, res)=>{
 });
 
 
-
+//Update Route
 app.put('/albums/:id', (req, res)=>{
     Album.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
         res.redirect('/albums');
     });
 });
 
+//Show Route
 app.get('/albums/:id', (req, res)=>{
   Album.findById(req.params.id, (err, foundAlbum)=>{
         res.render('show.ejs', {
@@ -93,7 +99,7 @@ app.get('/albums/:id', (req, res)=>{
     });
 });
 
-
+//Index Route
 app.get('/albums', (req, res)=>{
     Album.find({}, (error, allAlbums)=>{
         res.render('index.ejs', {
@@ -101,6 +107,16 @@ app.get('/albums', (req, res)=>{
         });
     });
 });
+
+app.put('/albums/:id/buy', (req, res) => {
+  Album.findByIdAndUpdate(req.params.id, {$inc: { quantity: -1 }}, (err) => {
+    if (err) {
+      res.send(err.message)
+    } else {
+      res.redirect('back')
+    }
+  })
+})
 
 app.listen(PORT, () =>{
   console.log('listening...');

@@ -14,6 +14,9 @@
     Year: <%=album.year%> <br/>
     Price: $<%=album.price%> <br/>
     Quantity: <%=album.quantity%> Units <br/>
+    <form action="/albums/<%=album.id%>/buy?_method=put" method="POST">
+                <button class="buy-button">Buy</button>
+    </form>
   </ul>
   <nav>
     <a href="/albums">Back to Main Store</a>
