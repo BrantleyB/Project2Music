@@ -9,6 +9,43 @@ const Album = require('./models/albums.js');
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended:true}));
 
+app.get('/seed', (req, res)=>{
+    Album.create(
+        [
+            {
+              title:'Noble Beast',
+              artist:'Andrew Bird',
+              genre:'Baroque Pop',
+              year: 2009,
+              price: 18,
+              quantity: 37,
+              img: 'https://upload.wikimedia.org/wikipedia/en/a/a1/Noble_Beast_%28Front_Cover%29.png'
+            },
+            {
+              title:'Long Live Asap',
+              artist:'Asap Rocky',
+              genre:'Hip Hop',
+              year: 2013,
+              price: 15,
+              quantity: 109,
+              img: 'https://upload.wikimedia.org/wikipedia/en/9/93/Long-live-asap.jpg'
+            },
+            {
+              title:'Abraxas',
+              artist:'Carlos Santana',
+              genre:'Latin Rock',
+              year: 1970,
+              price: 200,
+              quantity: 5,
+              img: 'https://upload.wikimedia.org/wikipedia/en/c/c4/SantanaAbraxas.jpg'
+            }
+        ],
+        (err, data)=>{
+            res.redirect('/albums');
+        }
+    )
+});
+
 app.delete('/albums/:id', (req, res)=>{
     Album.findByIdAndRemove(req.params.id, (err, data)=>{
         res.redirect('/albums');
