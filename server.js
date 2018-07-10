@@ -9,6 +9,12 @@ const Album = require('./models/albums.js');
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended:true}));
 
+app.delete('/albums/:id', (req, res)=>{
+    Album.findByIdAndRemove(req.params.id, (err, data)=>{
+        res.redirect('/albums');
+    });
+});
+
 app.get('/albums/new', (req, res)=>{
     res.render('new.ejs');
 });
