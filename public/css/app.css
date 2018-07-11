@@ -1,3 +1,7 @@
+.container {
+  color: white;
+}
+
 .albums {
   display: flex;
   justify-content: space-between;
@@ -10,9 +14,13 @@
 }
 
 body {
-  background-image:
+  background-image: url('https://media.gettyimages.com/photos/black-brick-wall-dark-background-for-design-picture-id639173848?b=1&k=6&m=639173848&s=612x612&w=0&h=J6lZ0Ic0yAJNpauA9i8iON2gvgL-l6WLUtLTGgJaVzw=');
 }
 
 h1 {
   text-align: center;
+}
+
+.buy-button {
+  color: white;
 }

@@ -2,13 +2,22 @@
 <html lang="en" dir="ltr">
   <head>
     <% include partials/head.ejs %>
+    <style>
+    body {
+      margin: auto;
+    }
+    </style>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
-    <h1> Welcome to my Music Emporium </h1>
+    <div class="container" id="index">
+      <h1> Welcome to my Music Emporium </h1>
+        <div class="albums">
     <form action="/albums/">
-    <input type="submit" value="Enter"/>
+    <input type="submit" value="Enter" style="color: white"/>
     </form>
+</div>
+</div>
   </body>
 </html>

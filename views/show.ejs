@@ -7,6 +7,9 @@
   <title></title>
 </head>
 <body>
+  <div class="container" id="index">
+    <h1>Chosen Album </h1>
+    <div class="albums">
   <img src="<%= album.img %>"
   <br/>
   <ul>
@@ -31,10 +34,10 @@
   <br/>
   <footer>
   <form action='/albums/<%=album.id%>/edit'>
-                <input type="submit" value="Edit" style="margin-bottom: 15px"/>
+                <input type="submit" value="Edit" style="color: white"/>
   </form>
   <form action="/albums/<%=album.id%>?_method=DELETE" method='POST'>
-              <input type="submit" value="DELETE" style="margin-bottom: 15px"/>
+              <input type="submit" value="DELETE" style="color: white"/>
             </form>
   </footer>
 </body>
