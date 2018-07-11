@@ -12,7 +12,7 @@
          <% albums.forEach( album => { %>
          <div class="card">
            <h5> <%= album.title %></h5>
-           <h5> <%= album.artist %></h5>
+           <h6> <%= album.artist %></h6>
            <a href="/albums/<%=album.id%>">
              <img src="<%= album.img %>" alt="An image of <%= album.name %>" /></a>
              <h6>Price: $<%=album.price %></h6>

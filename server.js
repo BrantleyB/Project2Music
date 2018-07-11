@@ -8,6 +8,7 @@ const Album = require('./models/albums.js');
 
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended:true}));
+app.use(express.static('public'))
 
 //Seed Route
 app.get('/seed', (req, res)=>{
